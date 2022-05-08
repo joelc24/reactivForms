@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { IntegrantesService } from '../services/integrantes.service';
+
 
 @Component({
   selector: 'app-new',
@@ -11,7 +14,7 @@ export class NewComponent implements OnInit {
   public formParent: FormGroup = new FormGroup({});//TODO: Parent Form Declaration
   count = true;
 
-  constructor() { }
+  constructor(private service: IntegrantesService, private route: Router) { }
 
   ngOnInit(): void {
     this.initFormParent();
@@ -63,7 +66,12 @@ export class NewComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.formParent.value);
+    this.service.saveIntegrante(this.formParent.value).subscribe(
+      (data) => {
+        console.log(data);
+        this.route.navigate(['/list']);
+      },
+      error => { console.log('error->', error)})
   }
 
   deleteFormCHild(index: number): void {

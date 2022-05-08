@@ -1,0 +1,46 @@
+{
+  "integrantes": [
+    {
+      "name": "Joel",
+      "conct_exp": [
+        {
+          "email": "correo@correo.com",
+          "telefono": 1234568982,
+          "expYear": "un año de experiencia",
+          "cargo": "junior"
+        }
+      ],
+      "technologies": [
+        {
+          "C#": false,
+          "flutter": true,
+          "angular": true,
+          "vue": false,
+          "react": true
+        }
+      ],
+      "id": 1
+    },
+    {
+      "name": "Diego",
+      "conct_exp": [
+        {
+          "email": "correo@correo.com",
+          "telefono": 12345689,
+          "expYear": "un año de experiencia",
+          "cargo": "junior"
+        }
+      ],
+      "technologies": [
+        {
+          "C#": true,
+          "flutter": false,
+          "angular": true,
+          "vue": true,
+          "react": false
+        }
+      ],
+      "id": 2
+    }
+  ]
+}
