@@ -1,0 +1,164 @@
+<h1>Formulario Para crear Nuevos Integrantes</h1>
+
+<div class="row">
+    <div class="col-md-6 mt-5">
+        <button type="button" class="btn btn-info mb-5" (click)="count && addFormChild()">Add Skills & period</button>
+        <form [formGroup]="formParent" (ngSubmit)="!formParent.invalid && submit()">
+            <fieldset>
+                <legend>Nuevo Integrante</legend>
+                <div class="form-group my-2">
+                    <label for="nombre" class="form-label mt-4">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Ingrese Su nombre"
+                        formControlName="name">
+                </div>
+
+                <div *ngIf="formParent.get('name')?.touched && formParent.get('name')?.errors?.['required']"
+                    class="alert alert-dismissible alert-danger">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <p class="text-secondary">El Campo Nombre es requerido</p>
+                </div>
+
+                <div *ngIf="formParent.get('name')?.touched && formParent.get('name')?.errors?.['minlength']"
+                    class="alert alert-dismissible alert-danger">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <p class="text-secondary">El Nombre debe tener 4 Caracteres</p>
+                </div>
+
+                <div class="my-4" formArrayName="conct_exp">
+                    <ng-container
+                        *ngFor="let contact of getControl('conct_exp',formParent)?.controls; index as formChild">
+
+                        <div [formGroupName]="formChild">
+                            <div class="form-group my-2">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Ingrese Su email"
+                                    formControlName="email">
+                            </div>
+
+                            <div *ngIf="contact.get('email')?.touched && contact.get('email')?.errors?.['required']"
+                                class="alert alert-dismissible alert-danger">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                <p class="text-secondary">El Campo email es requerido</p>
+                            </div>
+
+                            <div *ngIf="contact.get('email')?.touched && contact.get('email')?.errors?.['email']"
+                                class="alert alert-dismissible alert-danger">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                <p class="text-secondary">Email No Valido</p>
+                            </div>
+
+                            <div class="form-group my-2">
+                                <label for="telefono" class="form-label">Telefono</label>
+                                <input type="number" class="form-control" id="telefono"
+                                    placeholder="Ingrese Su telefono" formControlName="telefono">
+                            </div>
+
+                            <div *ngIf="contact.get('telefono')?.touched && contact.get('telefono')?.errors?.['required']"
+                                class="alert alert-dismissible alert-danger">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                <p class="text-secondary">El Campo telefono es requerido</p>
+                            </div>
+
+                            <div *ngIf="contact.get('telefono')?.touched && contact.get('telefono')?.errors?.['minlength']"
+                                class="alert alert-dismissible alert-danger">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                <p class="text-secondary">El Numero de Telefono debe tener 10 digitos</p>
+                            </div>
+
+                            <div class="form-group my-2">
+                                <label for="expYear" class="form-label">Años de Experiencia</label>
+                                <input type="text" class="form-control" id="expYear"
+                                    placeholder="Ingrese los Años de Experiencia" formControlName="expYear">
+                            </div>
+
+                            <div *ngIf="contact.get('expYear')?.touched && contact.get('expYear')?.errors?.['required']"
+                                class="alert alert-dismissible alert-danger">
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                <p class="text-secondary">El Campo de Experiencia es requerido</p>
+                            </div>
+
+                            <div class="mt-4">
+                                <label class="form-label">Cargo</label>
+                                <div class="btn-group mx-4" role="group" aria-label="Basic radio toggle button group">
+                                    <input type="radio" class="btn-check" name="cargo" id="btnradio1" autocomplete="off"
+                                        checked="" formControlName="cargo" value="junior">
+                                    <label class="btn btn-outline-primary" for="btnradio1">Junior</label>
+                                    <input type="radio" class="btn-check" name="cargo" id="btnradio2" autocomplete="off"
+                                        checked="" formControlName="cargo" value="semi-senior">
+                                    <label class="btn btn-outline-primary" for="btnradio2">Semi-Senior</label>
+                                    <input type="radio" class="btn-check" name="cargo" id="btnradio3" autocomplete="off"
+                                        checked="" formControlName="cargo" value="senior">
+                                    <label class="btn btn-outline-primary" for="btnradio3">Senior</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </ng-container>
+
+                </div>
+
+                <div formArrayName="technologies">
+                    <ng-container
+                        *ngFor="let technologie of getControl('technologies',formParent)?.controls; index as formChild">
+                        <div [formGroupName]="formChild">
+                            <fieldset>
+                                <legend>Tecnologias</legend>
+
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="C#" name="C#"
+                                        formControlName="C#">
+                                    <label class="form-check-label" for="C#">C#</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="flutter" name="flutter"
+                                        formControlName="flutter">
+                                    <label class="form-check-label" for="flutter">Flutter</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="angular" name="angular"
+                                        formControlName="angular">
+                                    <label class="form-check-label" for="angular">Angular</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="vue" name="vue"
+                                        formControlName="vue">
+                                    <label class="form-check-label" for="vue">Vue.Js</label>
+                                </div>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" id="react" name="react"
+                                        formControlName="react">
+                                    <label class="form-check-label" for="react">React.Js</label>
+                                </div>
+
+                            </fieldset>
+                        </div>
+                    </ng-container>
+                </div>
+
+
+                <button type="submit" class="btn btn-success my-5 mx-4">Submit</button>
+
+                <button type="button" class="btn btn-danger" (click)="deleteFormCHild(0)">Remove</button>
+
+
+            </fieldset>
+        </form>
+
+    </div>
+
+    <div class="col-md-6 m-auto">
+        <div class="card border-primary mb-3">
+            <div class="card-header">Valores del Formulario</div>
+            <div class="card-body">
+                <h4 class="card-title">Es valido el fomulario?:
+                    <span *ngIf="!formParent.invalid">✔</span>
+                    <span *ngIf="formParent.invalid">🔴</span>
+                </h4>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+
+                <pre>{{formParent.value | json}}</pre>
+            </div>
+        </div>
+    </div>
+</div>

@@ -6,17 +6,22 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { HeaderModule } from './shared/components/header/header.module';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FormularioComponent } from './shared/components/formulario/formulario.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormularioModule } from './shared/components/formulario/formulario.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HeaderModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormularioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
