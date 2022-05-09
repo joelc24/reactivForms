@@ -27,12 +27,13 @@ export class ListComponent implements OnInit {
 
   eliminar(id: any){
     this.service.deleteIntegrante(id).subscribe(data => {
+      this.data = this.data.filter((element: any) => element.id !== id);
       console.log(data);
     })
   }
 
   editar(id: any){
-    this.route.navigate(['/integrantes/edit', id]);
+    this.route.navigate([`/new/${id}`]);
   }
 
 

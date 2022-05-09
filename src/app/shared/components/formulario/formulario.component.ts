@@ -32,6 +32,7 @@ export class FormularioComponent implements OnInit {
   //TODO: FormGroup -> [FormArray, FormControls, FormGroup]
   initFormParent(): void {
     this.formParent = new FormGroup({
+      id: new FormControl(''),
       name: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4)])),
       conct_exp: new FormArray([], [Validators.required]),
       technologies: new FormArray([]),
@@ -75,6 +76,7 @@ export class FormularioComponent implements OnInit {
   }
 
   submit(): void {
+    console.log(this.formParent.value);
     this.service.updateIntegrante(this.formParent.value).subscribe(
       (data) => {
         console.log(data);

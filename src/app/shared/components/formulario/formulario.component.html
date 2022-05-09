@@ -1,4 +1,4 @@
-<h1>Formulario Para crear Nuevos Integrantes</h1>
+<h1>Formulario Para Editar Integrantes</h1>
 
 <div class="row">
     <div class="col-md-6 mt-5">
@@ -10,6 +10,8 @@
                     <label for="nombre" class="form-label mt-4">Nombre</label>
                     <input type="text" class="form-control" id="nombre" placeholder="Ingrese Su nombre"
                         formControlName="name">
+
+                        <input type="hidden" class="form-control" name="id" formControlName="id">
                 </div>
 
                 <div *ngIf="formParent.get('name')?.touched && formParent.get('name')?.errors?.['required']"

@@ -41,6 +41,27 @@
         }
       ],
       "id": 2
+    },
+    {
+      "name": "Prueba",
+      "conct_exp": [
+        {
+          "email": "correo@correo.com",
+          "telefono": 1234568982,
+          "expYear": "un año de experiencia",
+          "cargo": "semi-senior"
+        }
+      ],
+      "technologies": [
+        {
+          "C#": true,
+          "flutter": true,
+          "angular": false,
+          "vue": false,
+          "react": true
+        }
+      ],
+      "id": 3
     }
   ]
 }

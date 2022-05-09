@@ -26,7 +26,7 @@ export class IntegrantesService {
   }
 
   public updateIntegrante(integrante: any): Observable<any> {
-    return this.http.patch(this.url, integrante);
+    return this.http.patch(`${this.url}${integrante.id}`, integrante);
   }
 
   public deleteIntegrante(id: number): Observable<any> {
