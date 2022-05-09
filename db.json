@@ -28,7 +28,7 @@
           "email": "correo@correo.com",
           "telefono": 12345689,
           "expYear": "un año de experiencia",
-          "cargo": "junior"
+          "cargo": "semi-senior"
         }
       ],
       "technologies": [
@@ -49,15 +49,15 @@
           "email": "correo@correo.com",
           "telefono": 1234568982,
           "expYear": "un año de experiencia",
-          "cargo": "semi-senior"
+          "cargo": "senior"
         }
       ],
       "technologies": [
         {
           "C#": true,
           "flutter": true,
-          "angular": false,
-          "vue": false,
+          "angular": true,
+          "vue": true,
           "react": true
         }
       ],
