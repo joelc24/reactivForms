@@ -14,6 +14,7 @@ export class FormularioComponent implements OnInit {
   count = true;
 
   id : number = 0
+  nombre: string = '';
 
   constructor(private service: IntegrantesService, private route: Router, private activateRouter: ActivatedRoute) { }
 
@@ -24,6 +25,7 @@ export class FormularioComponent implements OnInit {
 
     this.service.getIntegrante(this.id).subscribe(data => {
       this.formParent.patchValue(data);
+      this.nombre = data.name;
     })
     this.initFormParent();
     this.addFormChild();

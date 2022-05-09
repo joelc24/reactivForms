@@ -5,7 +5,7 @@
         <button type="button" class="btn btn-info mb-5" (click)="count && addFormChild()">Add Skills & period</button>
         <form [formGroup]="formParent" (ngSubmit)="!formParent.invalid && submit()">
             <fieldset>
-                <legend>Nuevo Integrante</legend>
+                <legend>Integrante: {{ nombre }}</legend>
                 <div class="form-group my-2">
                     <label for="nombre" class="form-label mt-4">Nombre</label>
                     <input type="text" class="form-control" id="nombre" placeholder="Ingrese Su nombre"
